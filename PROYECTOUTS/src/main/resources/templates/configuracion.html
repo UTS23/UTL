@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración</title>
+    <!-- Enlace a Semantic UI CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2185d0;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #1b1c1d;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .ui.header {
+            margin-bottom: 20px;
+        }
+        .ui.form .field {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="ui header">Configuración de Cuenta</h1>
+    </header>
+    <main>
+        <section>
+            <h2 class="ui header">Información de la Cuenta</h2>
+            <form class="ui form">
+                <div class="field">
+                    <label>Nombre de Usuario</label>
+                    <input type="text" placeholder="Nombre de Usuario">
+                </div>
+                <div class="field">
+                    <label>Correo Electrónico</label>
+                    <input type="email" placeholder="Correo Electrónico">
+                </div>
+                <div class="field">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="Contraseña">
+                </div>
+                <button class="ui button" type="submit">Guardar Cambios</button>
+            </form>
+        </section>
+        <section>
+            <h2 class="ui header">Preferencias de Notificación</h2>
+            <div class="ui form">
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" tabindex="0" class="hidden">
+                        <label>Recibir notificaciones por correo electrónico</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" tabindex="0" class="hidden">
+                        <label>Recibir notificaciones por mensaje de texto</label>
+                    </div>
+                </div>
+                <!-- Agrega más opciones de preferencias de notificación aquí -->
+                <button class="ui button" type="submit">Guardar Preferencias</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>¿Necesitas más ayuda? Contacta a nuestro equipo de soporte técnico.</p>
+    </footer>
+    <!-- Enlace a Semantic UI JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>

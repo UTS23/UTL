@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Enlace a Semantic UI CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2185d0;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #1b1c1d;
+            color: #fff;
+            padding: 10px;
+            height: 100%;
+        }
+        nav .ui.list {
+            padding: 0;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #1b1c1d;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .ui.header {
+            margin-bottom: 20px;
+        }
+        .ui.list .item a {
+            color: #fff;
+        }
+        .ui.list .item a:hover {
+            text-decoration: underline;
+        }
+        .ui.list .item.active a {
+            font-weight: bold;
+        }
+        .clock {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .title-icon {
+            margin-right: 8px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .btn-professional {
+            background-color: #2185d0;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .btn-professional:hover {
+            background-color: #1678c2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="ui header">
+            <i class="cogs icon title-icon"></i>Panel de Administrador
+        </h1>
+    </header>
+    <div class="ui grid">
+        <div class="four wide column">
+           <nav style="background-color: #333; color: #fff;">
+  
+    <div class="ui list">
+        <div class="item"><a href="/admin/dashboard" class="ui link active"><i class="home icon"></i>Inicio</a></div>
+        <div class="item"><a href="/productos/otra" class="ui link"><i class="box icon"></i>Gestión de Productos</a></div>
+        <div class="item"><a href="/administrador/litusers" class="ui link"><i class="users icon"></i>Gestión de COmUsuarios</a></div>
+        <div class="item"><a href="/administrador/administradores" class="ui link"><i class="user icon"></i>Gestión de Usuarios</a></div>
+        <div class="item"><a href="/configuracion" class="ui link"><i class="cog icon"></i>Configuración</a></div>
+        <div class="item">
+            <button class="ui button" id="accessibility-button">
+                <i class="wheelchair icon"></i>Opciones de Accesibilidad
+            </button>
+        </div>
+        <div class="item"><a href="/ayuda" class="ui link"><i class="question circle icon"></i>Ayuda</a></div>
+        <div class="item"><a href="/logout" class="ui link"><i class="sign-out icon"></i>Cerrar Sesión</a></div>
+    </div>
+
+    <!-- Opciones de accesibilidad -->
+    <div id="accessibility-options" style="display: none;" class="ui list">
+        <div class="item">
+            <div class="ui selection dropdown">
+                <input type="hidden" name="color">
+                <i class="dropdown icon"></i>
+                <div class="default text">Color de Fondo</div>
+                <div class="menu">
+                    <div class="item" data-value="default">Por Defecto</div>
+                    <div class="item" data-value="white">Blanco</div>
+                    <div class="item" data-value="black">Negro</div>
+                    <div class="item" data-value="blue">Azul</div>
+                    <!-- Agrega más opciones de color según sea necesario -->
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ui selection dropdown">
+                <input type="hidden" name="font-size">
+                <i class="dropdown icon"></i>
+                <div class="default text">Tamaño de Letra</div>
+                <div class="menu">
+                    <div class="item" data-value="small">Pequeña</div>
+                    <div class="item" data-value="medium">Mediana</div>
+                    <div class="item" data-value="large">Grande</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <button class="ui toggle button" id="toggle-color-mode">Modo Blanco/Negro</button>
+        </div>
+    </div>
+</nav>
+  
+           
+        </div>
+        <div class="twelve wide column">
+            <main>
+                <section>
+                    <div class="clock" id="clock"></div>
+                    <script>
+                        function updateClock() {
+                            var now = new Date();
+                            var hours = now.getHours();
+                            var minutes = now.getMinutes();
+                            var seconds = now.getSeconds();
+                            var day = now.getDate();
+                            var month = now.getMonth() + 1;
+                            var year = now.getFullYear();
+
+                            // Agrega un 0 delante si los minutos o segundos son menores que 10
+                            minutes = minutes < 10 ? '0' + minutes : minutes;
+                            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                            document.getElementById('clock').innerHTML = hours + ':' + minutes + ':' + seconds + ' ' + day + '/' + month + '/' + year;
+                        }
+
+                        // Actualiza el reloj cada segundo
+                        setInterval(updateClock, 1000);
+
+                        // Llama a updateClock() para mostrar el tiempo actual
+                        updateClock();
+                    </script>
+                </section>
+                <section>
+                    <h2 class="ui header">Resumen</h2>
+                    <div class="ui grid">
+                        <div class="four wide column">
+                            <h3 class="ui header">Usuarios</h3>
+                            <p>Total: 100</p>
+                            <p>Activos: 80</p>
+                            <p>Inactivos: 20</p>
+                        </div>
+                        <div class="four wide column">
+                            <h3 class="ui header">Ventas</h3>
+                            <p>Total: $50,000</p>
+                            <p>Mes actual: $10,000</p>
+                            <p>Día de hoy: $500</p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="ui header">Productos</h2>
+                    <div class="ui grid">
+                        <!-- Aquí se itera sobre la colección de productos -->
+                        <div th:each="producto : ${productos}" class="four wide column">
+                            <div class="ui card">
+                                <div class="image">
+                                    <img th:src="${producto.imagen}" alt="Imagen del producto">
+                                </div>
+                                <div class="content">
+                                    <h3 class="header" th:text="${producto.nombre}"></h3>
+                                    <div class="meta">
+                                        <span th:text="'Precio: $' + ${producto.precio}"></span>
+                                    </div>
+                                    <div class="extra content">
+                                        <form th:action="@{/api/carrito/agregar/{id}(id=${producto.id})}" method="post">
+                                            <button type="submit" class="ui button primary">Agregar al Carrito</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="ui header">Últimas Compras</h2>
+                    <!-- Aquí puedes mostrar una lista de las últimas compras realizadas -->
+                </section>
+                <section>
+                    <h2 class="ui header">Actividad Reciente</h2>
+                    <!-- Aquí puedes mostrar una lista de las acciones recientes realizadas por los administradores -->
+                </section>
+            </main>
+        </div>
+    </div>
+    <footer>
+        <!-- Agrega información adicional o enlaces de pie de página aquí -->
+    </footer>
+    <!-- Enlace a Semantic UI JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>

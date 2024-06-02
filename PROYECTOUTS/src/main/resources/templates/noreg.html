@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Papelería</title>
+    <!-- Agrega enlaces a tus estilos CSS si es necesario -->
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <!-- Agrega el enlace a la biblioteca de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Agrega el enlace a la biblioteca de iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #FFA500;
+        }
+
+        .navbar-brand img {
+            filter: brightness(0) invert(1);
+        }
+
+        .form-inline .form-control {
+            border-color: #FFA500;
+        }
+
+        .form-inline .btn {
+            border-color: #343a40;
+            color: #343a40;
+        }
+
+        .form-inline .btn:hover {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .producto {
+            margin-bottom: 20px;
+        }
+
+        .producto .card {
+            border: none;
+            transition: all 0.3s;
+            border-radius: 15px;
+        }
+
+        .producto .card:hover {
+            box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .producto .card-img-top {
+            border-radius: 15px 15px 0 0;
+        }
+
+        .producto .card-title {
+            color: #343a40;
+        }
+
+        .producto .card-text {
+            color: #6c757d;
+        }
+
+        .producto .btn {
+            background-color: #FFA500;
+            border-color: #FFA500;
+            color: #fff;
+        }
+
+        .producto .btn:hover {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-professional {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-professional:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .btn-professional:active {
+            background-color: #004085;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer .column p,
+        .footer .column ul li a {
+            color: #b1b1b1;
+        }
+
+        .footer .column p {
+            margin-bottom: 10px;
+        }
+
+        .footer .column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer .column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer .column ul li a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer .column ul li a:hover {
+            color: #FFA500;
+        }
+
+        .footer .has-text-centered p {
+            margin-top: 20px;
+            color: #b1b1b1;
+        }
+
+        .footer .has-text-centered img {
+            max-width: 150px;
+            margin: 10px;
+        }
+    </style>
+  
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/productos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Unidades_Tecnol%C3%B3gicas_de_Santander_%28UTS%29_logo.png" alt="Logo" width="70px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+               <li class="nav-item">
+        <a class="nav-link" href="/categories">Regresar </a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="https://wa.me/573165125962?text=Hola,%20necesito%20tu%20ayuda" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25D366" class="bi bi-whatsapp" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg>
+        </a>
+      </li>
+      
+      
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/UTS23" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#333" class="bi bi-github" viewBox="0 0 16 16">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+</svg>
+        
+        </a>
+      </li>
+      
+      
+            </ul>
+
+            
+            
+            
+            
+            
+
+            <!-- Ícono del carrito de compras -->
+            
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Productos de Papelería</h1>
+
+        <div class="row">
+            <div th:each="producto : ${productos}" class="col-md-3">
+                <div class="producto card">
+                    <img th:src="${producto.imagen}" class="card-img-top" alt="Producto">
+                    <div class="card-body">
+                        <h3 class="card-title" th:text="${producto.nombre}"></h3>
+                        <p class="card-text" th:text="'Precio: ' + ${producto.precio}"></p>
+                        <form th:action="@{/login}" method="get">
+    <button type="submit" class="btn btn-professional">Iniciar Sesión</button>
+</form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agrega los enlaces a las bibliotecas de Bootstrap y jQuery al final del cuerpo del documento -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+<footer class="footer">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <p><strong>Papelería Bucaramanga</strong></p>
+                <p>Más variedad, menos precio</p>
+                <p>25 Años surtiendo Girón, Floridablanca y Piedecuesta.</p>
+                <p>En Papelería Bucaramanga, nos esforzamos por ofrecer la mejor calidad en productos de oficina y escolares, siempre a precios competitivos. Nuestro compromiso es brindar un excelente servicio al cliente, asegurando que encuentres todo lo que necesitas para tus proyectos y actividades escolares o profesionales.</p>
+                <p>Visítanos en nuestras diversas ubicaciones y descubre por qué somos la opción preferida por tantas personas en la región. Nuestro equipo está siempre listo para ayudarte a encontrar exactamente lo que necesitas, ya sea en nuestras tiendas físicas o a través de nuestro servicio de atención al cliente en línea.</p>
+                </div>
+                <div class="column">
+                    <p><strong>Nuestras Sedes</strong></p>
+                    <ul>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31672.87034601054!2d-73.15621152073962!3d7.113389526539447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683fb5e825876b%3A0x567bf3a987b08ea4!2sLa%20Concordia%2C%20Bucaramanga%2C%20Santander!5e0!3m2!1ses-419!2sco!4v1716247495645!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      
+                    </ul>
+                </div>
+                <div class="column">
+                    <p><strong>Link de Interés</strong></p>
+                    <ul>
+                        <li><a href="#" th:href="@{/privacy}">Privacidad de datos</a></li>
+                        <li><a href="#" th:href="@{/returns}">Devoluciones</a></li>
+                        <li><a href="#" th:href="@{/terms}">Términos & Condiciones</a></li>
+                        <li><a href="#" th:href="@{/contact}">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <p><strong>Atención al Cliente</strong></p>
+                    <ul>
+                        <li><a href="#" th:href="@{/about}">Nosotros</a></li>
+                        <li><a href="#" th:href="@{/delivery}">Domicilios</a></li>
+                        <li><a href="#" th:href="@{/privacy}">Privacidad de datos</a></li>
+                        <li><a href="#" th:href="@{/terms}">Términos & Condiciones</a></li>
+                        <li><a href="#" th:href="@{/returns}">Devoluciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="has-text-centered">
+                
+                <p>Envio Gratis desde $150.000 | Pagos online 100% seguros | 24/7 Soporte Atención al Cliente | Mercancia asegurada Envíos Asegurados</p>
+                              <img src="https://d1ih8jugeo2m5m.cloudfront.net/2023/05/pse-1-300x300.png" alt="Payment Methods">
+                              
+                              <img src="https://cdn11.bigcommerce.com/s-x7habvccrj/product_images/uploaded_images/payment-methods.png" alt="Payment Methods">
+                              
+            </div>
+            
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/js/bulma.js"></script>
+</body>
+</html>
+
+
+</html>

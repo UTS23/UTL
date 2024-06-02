@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papelería Medellín</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+   
+    <link rel="icon" href="https://png.pngtree.com/png-clipart/20220124/original/pngtree-stationery-border-png-image_7197120.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .hero-body {
+            background-color: #FFD700;
+            background-image: url('images/background-school.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero .title {
+            font-size: 2.5rem;
+            color: #333;
+        }
+        .box {
+            padding: 2rem;
+        }
+        footer {
+            background-color: #F7F7F7;
+            padding: 2rem 0;
+        }
+        footer p, footer ul, footer li {
+            margin: 0;
+            padding: 0;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+        footer ul li a {
+            color: #333;
+        }
+        .has-text-centered {
+            margin-top: 1rem;
+        }
+        .shadow-container {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        .shadow-container:hover {
+            transform: translateY(-10px);
+        }
+        .shadow-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .shadow-container {
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        .shadow-container:hover {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar is-primary">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5609/5609501.png" alt="Papelería Medellín">
+                </a>
+                <div class="navbar-burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#" th:href="@{/categories}">Categorías</a>
+                    <a class="navbar-item" href="#" th:href="@{/about}">Nosotros</a>
+                    <a class="navbar-item" href="#" th:href="@{/contact}">Contacto</a>
+                    <a class="navbar-item" href="#" th:href="@{/faq}">Preguntas Frecuentes</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-light" th:href="@{/login}">Iniciar Sesión / Registrarse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.pexels.com/photos/159518/colored-pencils-stationery-paper-goods-pencils-159518.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/159865/notepad-pencil-green-black-159865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/53874/pexels-photo-53874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- New Section with Containers -->
+    <div class="container mt-5">
+        <h1 class="title is-1 has-text-centered">Destacados</h1>
+        <div class="columns is-multiline">
+            <div class="column is-one-third">
+                <div class="shadow-container" onclick="alert('Debes iniciar sesión para continuar')">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_701252-MCO75440258764_042024-O.webp" alt="Cuadernos Premium" style="width: 150px;">
+                    <h2 class="title is-4">Cuadernos Premium</h2>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="shadow-container" onclick="alert('Debes iniciar sesión para continuar')">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_801573-MCO43152790156_082020-O.webp" alt="Lápices Profesionales" style="width: 150px;">
+                    <h2 class="title is-4">Lápices Profesionales</h2>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="shadow-container" onclick="alert('Debes iniciar sesión para continuar')">
+                    <img src="https://http2.mlstatic.com/D_Q_NP_790035-MLU72293918503_102023-O.webp" alt="Mochilas Escolares" style="width: 150px;">
+                    <h2 class="title is-4">Mochilas Escolares</h2>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="shadow-container" onclick="alert('Debes iniciar sesión para continuar')">
+                    <img src="https://images.cdn3.buscalibre.com/fit-in/360x360/b5/7f/b57f61ef0601f3e5814462d21ba488df.jpg" alt="Agenda 2024" style="width: 150px;">
+                    <h2 class="title is-4">Agenda 2024</h2>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="shadow-container" onclick="alert('Debes iniciar sesión para continuar')">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_782551-MCO41351582844_042020-O.webp" alt="Marcadores de Colores" style="width: 150px;">
+                    <h2 class="title is-4">Marcadores de Colores</h2>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="shadow-container" onclick="alert('Debes iniciar sesión para continuar')">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_951278-MLU73807566580_012024-O.webp" alt="Sets de Geometría" style="width: 150px;">
+                    <h2 class="title is-4">Sets de Geometría</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+window.addEventListener('mouseover', initLandbot, { once: true });
+window.addEventListener('touchstart', initLandbot, { once: true });
+var myLandbot;
+function initLandbot() {
+  if (!myLandbot) {
+    var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
+    s.addEventListener('load', function() {
+      var myLandbot = new Landbot.Livechat({
+        configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-2230203-3H9D2QJL4MADII3I/index.json',
+      });
+    });
+    s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+  }
+}
+</script>
+  <div class="column is-two-thirds">
+                    <video src="https://cdn.pixabay.com/video/2020/07/28/45773-447070796_large.mp4" controls autoplay loop style="max-width: 100%; height: auto;"></video>
+                </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <p>Papelería Bucarmanga</p>
+                    <p>Más variedad, menos precio</p>
+                    <p>25 Años surtiendo Giron, Floridablanca y Piedecuesta.</p>
+                </div>
+                <div class="column">
+                    <p><strong>Nuestras Sedes</strong></p>
+                    <ul>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31672.87034601054!2d-73.15621152073962!3d7.113389526539447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683fb5e825876b%3A0x567bf3a987b08ea4!2sLa%20Concordia%2C%20Bucaramanga%2C%20Santander!5e0!3m2!1ses-419!2sco!4v1716247495645!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      
+                    </ul>
+                </div>
+                <div class="column">
+                    <p><strong>Link de Interés</strong></p>
+                    <ul>
+                        <li><a href="#" th:href="@{/privacy}">Privacidad de datos</a></li>
+                        <li><a href="#" th:href="@{/returns}">Devoluciones</a></li>
+                        <li><a href="#" th:href="@{/terms}">Términos & Condiciones</a></li>
+                        <li><a href="#" th:href="@{/contact}">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <p><strong>Atención al Cliente</strong></p>
+                    <ul>
+                        <li><a href="#" th:href="@{/about}">Nosotros</a></li>
+                        <li><a href="#" th:href="@{/delivery}">Domicilios</a></li>
+                        <li><a href="#" th:href="@{/privacy}">Privacidad de datos</a></li>
+                        <li><a href="#" th:href="@{/terms}">Términos & Condiciones</a></li>
+                        <li><a href="#" th:href="@{/returns}">Devoluciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="has-text-centered">
+                
+                <p>Envio Gratis desde $150.000 | Pagos online 100% seguros | 24/7 Soporte Atención al Cliente | Mercancia asegurada Envíos Asegurados</p>
+                              <img src="https://d1ih8jugeo2m5m.cloudfront.net/2023/05/pse-1-300x300.png" alt="Payment Methods">
+                              
+                              <img src="https://cdn11.bigcommerce.com/s-x7habvccrj/product_images/uploaded_images/payment-methods.png" alt="Payment Methods">
+                              
+            </div>
+            
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/js/bulma.js"></script>
+</body>
+</html>
+
+

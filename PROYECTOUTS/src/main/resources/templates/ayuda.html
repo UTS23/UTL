@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda</title>
+    <!-- Enlace a Semantic UI CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2185d0;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #1b1c1d;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .ui.header {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="ui header">Página de Ayuda</h1>
+    </header>
+    <main>
+        <section>
+            <h2 class="ui header">Preguntas Frecuentes</h2>
+            <div class="ui accordion">
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    ¿Cómo cambio mi contraseña?
+                </div>
+                <div class="content">
+                    <p>Para cambiar tu contraseña, ve a la sección de configuración de tu cuenta y selecciona la opción para cambiar la contraseña. Ingresa tu contraseña actual y la nueva contraseña que deseas utilizar.</p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    ¿Cómo puedo contactar al soporte técnico?
+                </div>
+                <div class="content">
+                    <p>Puedes contactar al soporte técnico enviando un correo electrónico a brayanstevenmoreno@uts.edu.co o llamando al número de teléfono +123456789.</p>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    ¿Qué hago si olvidé mi nombre de usuario?
+                </div>
+                <div class="content">
+                    <p>Si olvidaste tu nombre de usuario, puedes utilizar la opción de recuperación de cuenta en la página de inicio de sesión. Se te pedirá que ingreses tu dirección de correo electrónico asociada con tu cuenta y se te enviarán instrucciones para recuperar tu nombre de usuario.</p>
+                </div>
+                <!-- Agrega más preguntas frecuentes aquí -->
+            </div>
+        </section>
+        <section>
+            <h2 class="ui header">Guías de Uso</h2>
+            <div class="ui list">
+                <div class="item">Guía de introducción</div>
+                <div class="item">Cómo utilizar las funciones avanzadas</div>
+                <div class="item">Consejos para mejorar la eficiencia</div>
+                <div class="item">Cómo personalizar tu perfil de usuario</div>
+                <div class="item">Configuración de notificaciones</div>
+                <div class="item">Cómo agregar y gestionar amigos</div>
+                <!-- Agrega más guías de uso aquí -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>¿Necesitas más ayuda? Contacta a nuestro equipo de soporte técnico.</p>
+    </footer>
+    <!-- Enlace a Semantic UI JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script>
+        // Inicializar acordeón Semantic UI
+        $('.ui.accordion').accordion();
+    </script>
+</body>
+</html>
+

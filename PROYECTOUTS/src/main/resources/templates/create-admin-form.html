@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+        .ui.form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .ui.form h1.header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .ui.submit.button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form class="ui form" th:action="@{/administrador/ne}" method="post">
+        <h1 class="ui header">Crear</h1>
+        <div class="field">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button class="ui primary submit button" type="submit">
+            <i class="user icon"></i> Crear
+        </button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            // Animation for form on load
+            $('.ui.form').transition('fade in', '2s');
+
+            // Animation for submit button on hover
+            $('.ui.submit.button').on('mouseenter', function() {
+                $(this).transition('pulse');
+            });
+        });
+    </script>
+</body>
+</html>
+

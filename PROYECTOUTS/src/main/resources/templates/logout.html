@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cierre de Sesión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #555; /* Color del texto */
+        }
+        .content-container {
+            text-align: center;
+        }
+        .ui.icon.header i.icon {
+            font-size: 100px;
+            color: #2185d0; /* Color del icono */
+        }
+        .ui.header {
+            margin-top: 20px;
+            color: #333;
+        }
+        .ui.button {
+            margin-top: 40px;
+            background-color: #2185d0;
+            color: #fff;
+        }
+        .timer {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #777; /* Color del temporizador */
+        }
+        video {
+            width: 500px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <video autoplay controls>
+            <source src="https://videos.pexels.com/video-files/8667994/8667994-hd_1280_720_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+       
+        <h2 class="ui header">Has cerrado sesión exitosamente.</h2>
+        <div class="timer" id="timer"></div>
+        <a href="#" class="ui button">Iniciar Sesión de Nuevo</a>
+    </div>
+
+    <script>
+        // Función para mostrar la fecha y hora actual
+        function showTime() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var formattedDate = day + '/' + month + '/' + year;
+            var formattedTime = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('timer').textContent = 'Fecha y Hora: ' + formattedDate + ' ' + formattedTime;
+        }
+
+        // Actualizar el temporizador cada segundo
+        setInterval(showTime, 1000);
+
+        // Redirigir a la página de inicio de sesión después de 5 segundos
+        setTimeout(function() {
+            try {
+                window.location.href = "/login"; // Reemplaza "/login" con la URL de tu página de inicio de sesión
+            } catch (error) {
+                console.error("Error al redirigir a la página de inicio de sesión:", error.message);
+            }
+        }, 6000);
+    </script>
+</body>
+</html>
+
+
+
+

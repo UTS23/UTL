@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .formulario-container {
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            padding: 30px; /* Aumento del padding */
+        }
+
+        .button.is-primary {
+            background-color: #00d1b2; /* Color primario personalizado */
+            border-color: #00d1b2; /* Color del borde personalizado */
+        }
+
+        .button.is-primary:hover {
+            background-color: #00b89c; /* Cambio de color al pasar el mouse */
+            border-color: #00b89c; /* Cambio de color del borde al pasar el mouse */
+        }
+
+        .button.is-primary:focus {
+            box-shadow: 0 0 0 0.2em rgba(0, 209, 178, 0.25); /* Efecto de foco personalizado */
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+        
+            <h2 class="title is-italic has-text-centered">Registro</h2>
+            
+            <div class="columns">
+                <div class="column is-one-third">
+                    <div class="formulario-container">
+                    <div th:if="${registroMsg}" class="registro-msg">
+                        <p th:text="${registroMsg}"></p>
+                    </div>
+                        <form th:action="@{/administrador/dos}" method="POST">
+                            <img src="https://www.eduopinions.com/wp-content/uploads/2017/09/Unidades-Tecnol%C3%B3gicas-de-Santander-UTS-logo.png" alt="UTS Logo" width="20" height="20">
+                        
+                            <div class="field">
+                                <label for="email" class="label"><i class="fas fa-envelope"></i> Email:</label>
+                                <div class="control">
+                                    <input type="email" id="email" name="email" class="input" placeholder="example@domain.com" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="password" class="label"><i class="fas fa-lock"></i> Password:</label>
+                                <div class="control">
+                                    <input type="password" id="password" name="password" class="input" placeholder="Contraseña" required>
+                                </div>
+                            </div>
+        
+                            <div class="field">
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="aceptar_terminos" required>
+                                        Acepto los <a href="/terms" target="_blank">términos y condiciones</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control has-text-centered">
+                                    <button type="submit" class="button is-primary">
+                                        <i class="fas fa-user-plus"></i> <!-- Icono de usuario plus -->
+                                        <span>Registrarse</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <p class="has-text-centered">Al registrarse, acepta nuestra política de privacidad de datos personales.</p>
+                </div>
+                <div class="column is-two-thirds">
+                    <video src="https://cdn.pixabay.com/video/2020/07/28/45773-447070796_large.mp4" controls autoplay loop style="max-width: 100%; height: auto;"></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap and Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Categorías - Papelería</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero.is-primary {
+            background-color: #007bff;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .hero-body {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        footer.footer {
+            background-color: #343a40;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        footer.footer p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        footer.footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer.footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer.footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer.footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .payment-methods img {
+            margin-right: 1rem;
+            max-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">
+                Explora Nuestras Categorías
+            </h1>
+            <h2 class="subtitle">
+                Encuentra todo lo que necesitas para tu oficina o estudio.
+            </h2>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline is-centered">
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">Papelería Básica</h3>
+                        <p class="card-description">Todo lo necesario: lápices, bolígrafos, cuadernos, etc.</p>
+                       <a href=""  th:href="@{/productos/nuss}" class="btn-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">Artículos de Oficina</h3>
+                        <p class="card-description">Desde clips hasta archivadores y organizadores.</p>
+                      <a href=""  th:href="@{/productos/nuss}" class="btn-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">Material Escolar</h3>
+                        <p class="card-description">Para estudiantes de todas las edades: mochilas, estuches, etc.</p>
+                       <a href=""  th:href="@{/productos/nuss}" class="btn-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">Arte y Manualidades</h3>
+                        <p class="card-description">Todo para artistas y aficionados: pinturas, pinceles, papel de dibujo, etc.</p>
+                        <a href=""  th:href="@{/productos/nuss}" class="btn-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">Regresar</h3>
+                      
+                        <a href=""  th:href="@{/}" class="btn-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <p>Papelería Bucarmanga</p>
+                <p>Más variedad, menos precio</p>
+                <p>25 Años surtiendo Giron, Floridablanca y Piedecuesta.</p>
+            </div>
+            <div class="column">
+                <p><strong>Nuestras Sedes</strong></p>
+                <ul>
+                    <li>La Concordia, Bucaramanga, Santander</li>
+                </ul>
+            </div>
+            <div class="column">
+                <p><strong>Link de Interés</strong></p>
+                <ul>
+                    <li><a href="#" th:href="@{/privacy}">Privacidad de datos</a></li>
+                    <li><a href="#" th:href="@{/returns}">Devoluciones</a></li>
+                    <li><a href="#" th:href="@{/terms}">Términos & Condiciones</a></li>
+                    <li><a href="#" th:href="@{/contact}">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <p><strong>Atención al Cliente</strong></p>
+                <ul>
+                    <li><a href="#" th:href="@{/about}">Nosotros</a></li>
+                    <li><a href="#" th:href="@{/delivery}">Domicilios</a></li>
+                    <li><a href="#" th:href="@{/privacy}">Privacidad de datos</a></li>
+<li><a href="#" th:href="@{/terms}">Términos & Condiciones</a></li>
+                    <li><a href="#" th:href="@{/returns}">Devoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="has-text-centered">
+            <p>Envío Gratis desde $150.000 | Pagos online 100% seguros | 24/7 Soporte Atención al Cliente | Mercancía asegurada Envíos Asegurados</p>
+            <div class="payment-methods">
+                <img src="https://d1ih8jugeo2m5m.cloudfront.net/2023/05/pse-1-300x300.png" alt="Payment Methods">
+                <img src="https://cdn11.bigcommerce.com/s-x7habvccrj/product_images/uploaded_images/payment-methods.png" alt="Payment Methods">
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
